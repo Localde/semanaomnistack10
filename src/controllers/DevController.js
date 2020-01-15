@@ -8,28 +8,33 @@ module.exports = {
         //Busca os dados do Dev que deseja cadastrar.
         const { github_username, techs, latitude, longitude } = request.body;
 
-        //Url: da API do github usando crase para permitir colocar variaveis
-        const apiResponse = await axios.get(`https://api.github.com/users/${github_username}`);
+        //Entra no banco de dados e procura um registro de dev que contenha esse github_username que esta sendo recebido nesta requisição
+        let dev = await Dev.findOne({ github_username });
 
-        //Os dados da resposta
-        const { name = login, avatar_url, bio } = apiResponse.data;
+        if (!dev) {
+            //Url: da API do github usando crase para permitir colocar variaveis
+            const apiResponse = await axios.get(`https://api.github.com/users/${github_username}`);
 
-        const techsArray = techs.split(',').map(tech => tech.trim());
+            //Os dados da resposta
+            const { name = login, avatar_url, bio } = apiResponse.data;
 
-        const location = {
-            type: 'Point',
-            coordinates: [longitude, latitude]
-        };
+            const techsArray = techs.split(',').map(tech => tech.trim());
 
-        const dev = await Dev.create({
-            github_username,
-            name,
-            avatar_url,
-            bio,
-            techs: techsArray,
-            location
-        })
+            const location = {
+                type: 'Point',
+                coordinates: [longitude, latitude]
+            };
 
+            dev = await Dev.create({
+                github_username,
+                name,
+                avatar_url,
+                bio,
+                techs: techsArray,
+                location
+            })
+        }
+        
         return response.json(dev);
     }
 };
