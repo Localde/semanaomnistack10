@@ -12,6 +12,8 @@ app.use(express.json());
 // Route Params: request.params (Identificar um recurso na alteração ou remoção)
 // Body: request.body (Dados para criação ou alteração de um registro)
 
+// MongoDB (Não-relacional)
+
 app.post('/users', (request, response) => {
     console.log(request.body);
     return response.json({ message: 'Hello OmniStack' });
