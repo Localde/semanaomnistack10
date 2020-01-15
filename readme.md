@@ -23,7 +23,7 @@ Exemplo:
 
 return response.send('Hello World');
 -----------------------------------------------------------------------------------------
-listen(): É uma função do framework express, que cria uma porta onde será feito a conecção do framewor.
+listen(): É uma função do framework express, que cria uma porta onde será feito a conecção do framework.
 Exemplo:
 
 app.listen(3333);
@@ -55,4 +55,10 @@ Exemplo:
 const { Router } = require('express');
 
 const routes = Router();
+------------------------------------------------------------------------------------------
+module.exports: A exportação é usada para permitir o reconhecimento do módulo pela aplicação, para ser importado em outros arquivos.
+Exemplo:
+Arquivo1 exporta 
+Arquivo2 importa o arquivo 1
+ module.exports = mongoose.model('Dev', DevSchema);
 ------------------------------------------------------------------------------------------
