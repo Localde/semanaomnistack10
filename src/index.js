@@ -13,6 +13,7 @@ mongoose.connect('mongodb+srv://Localde:localde@cluster0-tfkmt.mongodb.net/week1
 })
 
 app.use(express.json());
+app.use(routes); // CADASTRAMENTO DA ROTAS
 
 // Métodos HTTP: get, post, put, delete # Métodos semânticas.
 
