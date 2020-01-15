@@ -12,7 +12,7 @@ mongoose.connect('mongodb+srv://Localde:localde@cluster0-tfkmt.mongodb.net/week1
     useUnifiedTopology: true
 })
 
-app.use(express.json());
+app.use(express.json()); // Esse comando tem que vir antes do comando use(routes) pois a execução é feita de forma linear.
 app.use(routes); // CADASTRAMENTO DA ROTAS
 
 // Métodos HTTP: get, post, put, delete # Métodos semânticas.
