@@ -65,4 +65,23 @@ Arquivo2 importa o arquivo 1
 axios: Biblioteca usada para consumir API's.
 Download:
 yarn add axios
+exemplo:
+const axios = require('axios');
+------------------------------------------------------------------------------------------
+Adicionando API: const response = axios.get(`endereço-da-api`)
+------------------------------------------------------------------------------------------
+async: Tag que significa que pode demorar para responder.
+await: aguarda o programa responder para depois continuar o processamento do código.
+
+Exemplo:
+
+routes.post('/devs', async (request, response) => {
+    //Busca os dados do Dev que deseja cadastrar.
+    const { github_username } = request.body;
+
+    //Url: da API do github usando crase para permitir colocar variaveis
+    const response = await axios.get(`https://api.github.com/users/${github_username}`)
+
+    return response.json({ message: 'Hello OmniStack' });
+});
 ------------------------------------------------------------------------------------------
