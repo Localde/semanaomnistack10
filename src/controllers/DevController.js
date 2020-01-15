@@ -1,9 +1,17 @@
 const axios = require('axios');
 const Dev = require('../models/Dev');
 
+
+//index, show, store, update, destroy
+
 //Abstraido do routes.js e convertido para uma Função Nomeada.
 //Criando Função Nomeada
 module.exports = {
+    async index(request, response) {
+        const devs = await Dev.find();
+
+        return response.json(devs);
+    },
     async store(request, response) {
         //Busca os dados do Dev que deseja cadastrar.
         const { github_username, techs, latitude, longitude } = request.body;
