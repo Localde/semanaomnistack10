@@ -1,5 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
+//importa as rotas para reconhecimento da aplicação
+const routes = require('./routes');
+
 
 const app = express();
 

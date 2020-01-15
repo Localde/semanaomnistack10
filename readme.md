@@ -50,3 +50,9 @@ portquiz.net:27017 - Verifica se está por traz de um proxy.
 
 Se mostrar: You have reached this page on port 27017 - Está certo, senão estará errado e não funcionára o banco de dados.
 ------------------------------------------------------------------------------------------
+{ }: Importar funções especificas de um módulo.
+Exemplo:
+const { Router } = require('express');
+
+const routes = Router();
+------------------------------------------------------------------------------------------
