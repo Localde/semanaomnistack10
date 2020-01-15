@@ -62,3 +62,7 @@ Arquivo1 exporta
 Arquivo2 importa o arquivo 1
  module.exports = mongoose.model('Dev', DevSchema);
 ------------------------------------------------------------------------------------------
+axios: Biblioteca usada para consumir API's.
+Download:
+yarn add axios
+------------------------------------------------------------------------------------------
