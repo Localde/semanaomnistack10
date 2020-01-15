@@ -37,3 +37,16 @@ Depois é só digitar: yarn dev
 ------------------------------------------------------------------------------------------
 insomnia: App que testa rotas da API.
 ------------------------------------------------------------------------------------------
+mongodb: Banco de Dados.
+------------------------------------------------------------------------------------------
+mongoose: É uma biblioteca que dara acesso ao node para dentro do Banco de Dados do MongoDB. 
+Exemplo:
+powershell - yarn add mongoose
+arquivo.js - const mongoose = require('mongoose');
+------------------------------------------------------------------------------------------
+Ps: atalho ctrl + space: mostra sugestões de código.
+------------------------------------------------------------------------------------------
+portquiz.net:27017 - Verifica se está por traz de um proxy.
+
+Se mostrar: You have reached this page on port 27017 - Está certo, senão estará errado e não funcionára o banco de dados.
+------------------------------------------------------------------------------------------

@@ -1,6 +1,13 @@
 const express = require('express');
+const mongoose = require('mongoose');
 
 const app = express();
+
+mongoose.connect('mongodb+srv://Localde:localde@cluster0-tfkmt.mongodb.net/week10?retryWrites=true&w=majority', {
+    //removendo os avisos que irá aparecer no terminal #erros
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
 
 app.use(express.json());
 
