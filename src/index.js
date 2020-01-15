@@ -9,8 +9,8 @@ const app = express();
 mongoose.connect('mongodb+srv://Localde:localde@cluster0-tfkmt.mongodb.net/week10?retryWrites=true&w=majority', {
     //removendo os avisos que irá aparecer no terminal #erros
     useNewUrlParser: true,
-    useUnifiedTopology: true
-})
+    useUnifiedTopology: true,
+});
 
 app.use(express.json()); // Esse comando tem que vir antes do comando use(routes) pois a execução é feita de forma linear.
 app.use(routes); // CADASTRAMENTO DA ROTAS
