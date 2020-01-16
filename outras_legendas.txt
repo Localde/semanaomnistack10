@@ -1,0 +1,28 @@
+Legendas:
+-------------------------------------------------------------------
+yarn create react-app 'nome da pasta':
+Cria um projeto usando react native, ja com suas depêndencias.
+Exemplo:
+yarn create react-app web
+-------------------------------------------------------------------
+code . : Abre o VS code.
+-------------------------------------------------------------------
+code nome_do_arquivo: Abre um arquivo existênte.
+-------------------------------------------------------------------
+code .nome_do_arquivo: Cria um novo arquivo.
+-------------------------------------------------------------------
+yarn start: Comando para inicializar o projeto.
+-------------------------------------------------------------------
+Os três conceitos principais do react:
+--Componente: É uma função que retorna algum conteúdo em HTML, CSS e JS.
+Bloco isolado de HTML, CSS e JS, o qual não interfere no restante da aplicação.
+Exemplo:
+function App() {
+	<h1><p>Olá mundo!</p></h1>
+}
+
+--Propriedade: Informações que um componente PAI passa para o componente FILHO.
+
+--Estado: Informações mantidas pelo componente (Lembrar: Imutabilidade)
+
+-------------------------------------------------------------------

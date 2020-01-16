@@ -1,0 +1,4 @@
+Tecnologias usada:
+Node.JS
+MongoDB
+Insomnia
