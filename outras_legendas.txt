@@ -26,3 +26,5 @@ function App() {
 --Estado: Informações mantidas pelo componente (Lembrar: Imutabilidade)
 
 -------------------------------------------------------------------
+ctrl + d: Comando do VS code para selecionar tudo que for igual ao que ja foi selecionado.
+-------------------------------------------------------------------
