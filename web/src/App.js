@@ -8,6 +8,8 @@ import './Main.css';
 
 
 function App() {
+  const [devs, setDevs] = useState([]);
+
   const [github_username, setGithubUsername] = useState('');
   const [techs, setTechs] = useState('');
   const [latitude, setLatitude] = useState('');
@@ -30,6 +32,15 @@ function App() {
     ) 
   }, []);
 
+  useEffect(() => {
+    async function loadDevs(){
+      const response = await api.get('/devs');
+
+      setDevs(response.data);
+    }
+    loadDevs();
+  }, []);
+
   async function handleAddDev(e) {
     e.preventDefault();
     
@@ -39,7 +50,10 @@ function App() {
       latitude,
       longitude
     })
-    console.log(response.data);
+    setGithubUsername('');
+    setTechs('');
+
+    setDevs([...devs, response.data]);
   }
 
   return (
@@ -98,50 +112,19 @@ function App() {
         </aside>
         <main>
           <ul>
-            <li className="dev-item">
-              <header>
-                <img src="https://avatars0.githubusercontent.com/u/32994385?s=400&u=060152207e08b4c3ec0429d664f5f02f58a59fb1&v=4" alt="Ollywer Dyego"/>
-                <div className="user-info">
-                  <strong>Ollywer Dyego</strong>
-                  <span>Python</span>
-                </div>
-              </header>
-              <p>Nada a declarar</p>
-              <a href="https://github.com/localde">Acessar perfil no Github</a>
-            </li>
-            <li className="dev-item">
-              <header>
-                <img src="https://avatars0.githubusercontent.com/u/32994385?s=400&u=060152207e08b4c3ec0429d664f5f02f58a59fb1&v=4" alt="Ollywer Dyego"/>
-                <div className="user-info">
-                  <strong>Ollywer Dyego</strong>
-                  <span>Python</span>
-                </div>
-              </header>
-              <p>Nada a declarar</p>
-              <a href="https://github.com/localde">Acessar perfil no Github</a>
-            </li>
-            <li className="dev-item">
-              <header>
-                <img src="https://avatars0.githubusercontent.com/u/32994385?s=400&u=060152207e08b4c3ec0429d664f5f02f58a59fb1&v=4" alt="Ollywer Dyego"/>
-                <div className="user-info">
-                  <strong>Ollywer Dyego</strong>
-                  <span>Python</span>
-                </div>
-              </header>
-              <p>Nada a declarar</p>
-              <a href="https://github.com/localde">Acessar perfil no Github</a>
-            </li>
-            <li className="dev-item">
-              <header>
-                <img src="https://avatars0.githubusercontent.com/u/32994385?s=400&u=060152207e08b4c3ec0429d664f5f02f58a59fb1&v=4" alt="Ollywer Dyego"/>
-                <div className="user-info">
-                  <strong>Ollywer Dyego</strong>
-                  <span>Python</span>
-                </div>
-              </header>
-              <p>Nada a declarar</p>
-              <a href="https://github.com/localde">Acessar perfil no Github</a>
-            </li>
+            {devs.map(dev => (
+              <li key={dev.id} className="dev-item">
+                <header>
+                  <img src={dev.avatar_url} alt={dev.name}/>
+                  <div className="user-info">
+                    <strong>{dev.name}</strong>
+                    <span>{dev.techs.join(', ')}</span>
+                  </div>
+                </header>
+                <p>{dev.bio}</p>
+                <a href={`https://github.com/${dev.github_username}`}>Acessar perfil no Github</a>
+              </li>
+            ))}
           </ul>
         </main>
       </div>
