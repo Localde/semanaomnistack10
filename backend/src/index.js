@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 //importa as rotas para reconhecimento da aplicação
 const routes = require('./routes');
 
@@ -12,6 +13,7 @@ mongoose.connect('mongodb+srv://Localde:localde@cluster0-tfkmt.mongodb.net/week1
     useUnifiedTopology: true,
 });
 
+app.use(cors());
 app.use(express.json()); // Esse comando tem que vir antes do comando use(routes) pois a execução é feita de forma linear.
 app.use(routes); // CADASTRAMENTO DA ROTAS
 
