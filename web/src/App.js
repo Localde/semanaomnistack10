@@ -6,6 +6,7 @@ import './App.css';
 import './Sidebar.css';
 import './Main.css';
 
+import DevItem from './components/DevItem';
 
 function App() {
   const [devs, setDevs] = useState([]);
@@ -113,17 +114,7 @@ function App() {
         <main>
           <ul>
             {devs.map(dev => (
-              <li key={dev.id} className="dev-item">
-                <header>
-                  <img src={dev.avatar_url} alt={dev.name}/>
-                  <div className="user-info">
-                    <strong>{dev.name}</strong>
-                    <span>{dev.techs.join(', ')}</span>
-                  </div>
-                </header>
-                <p>{dev.bio}</p>
-                <a href={`https://github.com/${dev.github_username}`}>Acessar perfil no Github</a>
-              </li>
+              <DevItem key={dev.id} dev={dev} />
             ))}
           </ul>
         </main>
